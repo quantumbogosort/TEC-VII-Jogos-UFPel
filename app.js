@@ -115,8 +115,8 @@ function enemy() {
 
     enemy.scale.set(0.5)
 
-    enemy.x = starship.x;
-    enemy.y = starship.y - 450;
+    enemy.x = getRandomPosition(starship.x - 300, starship.x + 300);
+    enemy.y = getRandomPosition(starship.y - 550, starship.y - 650);
     
     enemy.anchor.set(0.5, 0.5);
     enemy.rotation += 380;
@@ -126,12 +126,13 @@ function enemy() {
 }
 
 enemy();
+
 ticker.add(animate);
 ticker.start();
 
 function animate() {
     requestAnimationFrame(animate);
-
+    
     for (var b = bullets.length - 1; b >= 0; b--) {
         if (bullets[b] != undefined) {
             bullets[b].y -= bulletSpeed;
@@ -145,7 +146,10 @@ function animate() {
         if (enemies[b] != undefined) {
             enemies[b].y += enemySpeed;
 
-            if (enemies[b].y >= starship.y - 40) {
+            if (
+                (enemies[b].y >= starship.y - 16) && 
+            ((enemies[b].x >= starship.x + 16) && (enemies[b].x >= starship.x - 16))
+            ) {
                 enemies[b].texture = explosion_texture;
                 starship.texture = explosion_texture;
                 delete enemies[b];
@@ -154,9 +158,14 @@ function animate() {
 
             if (enemies[b].y > 700) {
                 delete enemies[b];
+                enemy();
             }
         }
     }
     // render the container
     renderer.render(stage);
 }
+
+function getRandomPosition(min, max) {
+    return Math.random() * (max - min) + min;
+  }
