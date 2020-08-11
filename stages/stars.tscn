@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/stars_far.png" type="Texture" id=1]
+[ext_resource path="res://sprites/stars_near.png" type="Texture" id=2]
+[ext_resource path="res://scripts/stars.gd" type="Script" id=3]
+
+[node name="stars" type="Node"]
+
+[node name="stars_far" type="Node" parent="."]
+
+[node name="stars_far_0" type="Sprite" parent="stars_far"]
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 3 )
+velocity = Vector2( 0, 50 )
+
+[node name="stars_far_1" type="Sprite" parent="stars_far"]
+position = Vector2( 0, 180 )
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 3 )
+velocity = Vector2( 0, 50 )
+
+[node name="stars_far_2" type="Sprite" parent="stars_far"]
+position = Vector2( 0, -180 )
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 3 )
+velocity = Vector2( 0, 50 )
+
+[node name="stars_near" type="Node" parent="."]
+
+[node name="stars_near_0" type="Sprite" parent="stars_near"]
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 3 )
+velocity = Vector2( 0, 100 )
+
+[node name="stars_near_1" type="Sprite" parent="stars_near"]
+position = Vector2( 0, 180 )
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 3 )
+velocity = Vector2( 0, 100 )
+
+[node name="stars_near_2" type="Sprite" parent="stars_near"]
+position = Vector2( 0, -180 )
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 3 )
+velocity = Vector2( 0, 100 )
