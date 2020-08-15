@@ -1,6 +1,6 @@
 extends Area2D
 
-export var armor = 8 setget set_armor
+export var armor = 4 setget set_armor
 export var velocity = Vector2()
 const scn_explosion = preload("res://stages/explosion.tscn")
 
